@@ -8,6 +8,6 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        return 'This is teh list of questions';
+        return 'This is the list of questions';
     }
 }
