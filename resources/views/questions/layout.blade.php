@@ -16,6 +16,7 @@
 <body>
 
     <!-- NAVBAR -->
+    @include('questions/navbar')
 
     <!-- CONTENT -->
     @yield('content')
