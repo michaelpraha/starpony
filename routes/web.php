@@ -26,6 +26,9 @@ Route::get('/questions/{id}', 'QuestionController@show')->name('show question');
 // list of categories
 Route::get('/categories', 'CategoryController@index');
 
+// edit a quesion
+Route::get('/questions/{id}', 'CategoryController@edit');
+
 // store a question (submit the form)
 Route::post('/questions', 'QuestionController@store');
 

@@ -2,6 +2,8 @@
 
 @section('content')
 
+@include('common/errors')
+
     <form action="{{ action('QuestionController@store') }}" method="post">
 
         {{ csrf_field() }}

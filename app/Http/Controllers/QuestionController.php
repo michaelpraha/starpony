@@ -68,9 +68,28 @@ class QuestionController extends Controller
         return $view;
     }
 
+    public function edit()
+    {
+        // retrieve and existionQuestion from DB or fail with 404
+        $question - Question::findOrFail($id);
+
+        $view = view('questions/create');
+        $view->question = $question;
+        return $view;
+    }
+
     public function store(Request $request)
     {
-        $question = new Question();
+        $this->validate($request, [
+            'title' => 'required|min:10',
+            'text' => 'required'
+        ]);
+
+        if ($id) {
+            Question::findOrFail($id);
+        } else {
+            $question = new Question();
+        }
 
         // mass add
         $question->fill([
@@ -78,19 +97,15 @@ class QuestionController extends Controller
             'text' => $request->input('text')
         ]);
 
-
-        // or
+        // or individually 
         // $question->title = $request->input('title');
         // $question->text = $request->input('text');
-
-
-
 
         $question->save();
 
         session()->flash('success_message', 'Success!');
 
-        return redirect()->action('QuestionController@show', ['id' => $question->id]);
+        return redirect()->action('QuestionController@edit', ['id' => $question->id]);
     }
 
 }
