@@ -29,13 +29,11 @@
 
         </div>
         <div class="question-right">
-            <h2>How can I connect to MySQL in Python 3 on Windows?</h2>
-            <p>I am using ActiveState Python 3 on Windows and wanted to connect to my MySQL database. I heard that
-                mysqldb was
-                the module to use. I can't find mysqldb for Python 3.</p>
-            <p>Is there a repository available where the binaries exist for mysqldb? How can I connect to MySQL in
+            <h2>{{ $question->title }}</h2>
+            <p>{{ $question->text }}</p>
+            <!-- <p>Is there a repository available where the binaries exist for mysqldb? How can I connect to MySQL in
                 Python 3 on
-                Windows?</p>
+                Windows?</p> -->
         </div>
     </div>
 </section>
@@ -44,6 +42,8 @@
 
     <div class="container">
         <h2>12 Answers</h2>
+
+        @foreach($answers as $answer)
         <div class="answer">
             <div class="answer-left">
                 <div class="user-avatar">
@@ -63,12 +63,12 @@
                 </div>
             </div>
             <div class="answer-right">
-                <p>I also tried using pymysql (on my Win7 x64 machine, Python 3.3), without too much luck. I downloaded
-                    the .tar.gz, extract, ran "setup.py install", and everything seemed fine. Until I tried connecting
-                    to a database, and got "KeyError [56]". An error which I was unable to find documented anywhere.</p>
+                <p>{{ $answer->text }}</p>
+                <br>
+                And just to be sure, the question was: {{ $answer->question->title }}
             </div>
         </div>
-
+        @endforeach
     </div>
 
 </section>
