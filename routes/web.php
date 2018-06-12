@@ -18,6 +18,8 @@ Route::get('/', function () {
 // list of questions
 Route::get('/questions', 'QuestionController@index');
 
+Route::get('/questions/create', 'QuestionController@create');
+
 // detail of one question
 Route::get('/questions/{id}', 'QuestionController@show')->name('show question');
 

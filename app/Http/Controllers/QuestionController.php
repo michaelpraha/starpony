@@ -11,7 +11,6 @@ class QuestionController extends Controller
 {
     public function index()
     {
-        $request = request();
 
         // $result = DB::table('questions')->latest()->get();
 
@@ -58,6 +57,14 @@ class QuestionController extends Controller
         
         $view->answers = $answers;
         $view->question = $question;
+
+        return $view;
+    }
+
+    public function create()
+    {
+        $view = view('questions/create');
+
         return $view;
     }
 
