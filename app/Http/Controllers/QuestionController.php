@@ -72,10 +72,25 @@ class QuestionController extends Controller
     {
         $question = new Question();
 
-        $question->title = $request->input('title');
-        $question->text = $request->input('text');
+        // mass add
+        $question->fill([
+            'title' => $request->input('title'),
+            'text' => $request->input('text')
+        ]);
+
+
+        // or
+        // $question->title = $request->input('title');
+        // $question->text = $request->input('text');
+
+
+
 
         $question->save();
+
+        session()->flash('success_message', 'Success!');
+
+        return redirect()->action('QuestionController@show', ['id' => $question->id]);
     }
 
 }
