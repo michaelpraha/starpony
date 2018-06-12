@@ -11,6 +11,8 @@ class QuestionController extends Controller
 {
     public function index()
     {
+        $request = request();
+
         // $result = DB::table('questions')->latest()->get();
 
         $result = Question::latest()->get();
