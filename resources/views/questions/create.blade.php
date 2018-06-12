@@ -2,7 +2,9 @@
 
 @section('content')
 
-    <form action="" method="post">
+    <form action="{{ action('QuestionController@store') }}" method="post">
+
+        {{ csrf_field() }}
 
         <div class="form-group">
         {!! Form::label('title', 'Title of the question', ['class' => 'control-label']) !!}

@@ -68,4 +68,14 @@ class QuestionController extends Controller
         return $view;
     }
 
+    public function store(Request $request)
+    {
+        $question = new Question();
+
+        $question->title = $request->input('title');
+        $question->text = $request->input('text');
+
+        $question->save();
+    }
+
 }

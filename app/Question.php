@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
+    // protected $fillable = ['title', 'text'];
+
+    protected $guarded = [];
 
     // question has many answers
     public function answers()

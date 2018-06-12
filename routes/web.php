@@ -26,5 +26,9 @@ Route::get('/questions/{id}', 'QuestionController@show')->name('show question');
 // list of categories
 Route::get('/categories', 'CategoryController@index');
 
+// store a question (submit the form)
+Route::post('/questions', 'QuestionController@store');
+
 // movies workout
 Route::get('/movies', 'MovieController@index');
+
