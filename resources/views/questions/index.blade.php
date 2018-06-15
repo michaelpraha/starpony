@@ -23,22 +23,24 @@
                         <label>responses</label>
                     </div>
                     <div class="question-stat">
-                        <span>5</span>
+                        <span>35</span>
                         <label>votes</label>
                     </div>
                 </div>
                 <div class="question-right">
+                
                     <div class="question-name">
-                        <a href="{{ route('show question', ['id' => 1]) }}">SceneKit Swift - just play dae scene? Just getting white screen?</a>
+                        <a href="#">{{ $question->title }}</a>
                     </div>
                     <div class="question-info">
-                        asked at {{ $question->created_at}} <a href="">slavo</a>
+                        asked at {{ $question->created_at }} <a href="">slavo</a>
                     </div>
                 </div>
             </div>
             @endforeach
+
         </div>
     </section>
- 
+ {{ $questions->render() }}
 @endsection
 

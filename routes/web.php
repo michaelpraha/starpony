@@ -21,7 +21,7 @@ Route::get('/questions', 'QuestionController@index');
 Route::get('/questions/create', 'QuestionController@create');
 
 // detail of one question
-Route::get('/questions/{id}', 'QuestionController@show')->name('show question');
+Route::get('/questions/{id}', 'QuestionController@show');
 
 // list of categories
 Route::get('/categories', 'CategoryController@index');
@@ -31,6 +31,14 @@ Route::get('/questions/{id}', 'CategoryController@edit');
 
 // store a question (submit the form)
 Route::post('/questions', 'QuestionController@store');
+
+Route::get('actors/new', 'ActorController@create');
+
+Route::post('actors/new', 'ActorController@store');
+
+Route::get('actors/edit/{id}', 'ActorController@edit');
+
+Route::post('actors/edit/{id}', 'ActorController@store');
 
 // movies workout
 Route::get('/movies', 'MovieController@index');

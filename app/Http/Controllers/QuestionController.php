@@ -11,10 +11,10 @@ class QuestionController extends Controller
 {
     public function index()
     {
-
+        
         // $result = DB::table('questions')->latest()->get();
 
-        $result = Question::latest()->get();
+        $result = Question::latest()->paginate(5);
 
         // prepare the view for the list of questions
         $view = view('questions/index');
@@ -24,10 +24,10 @@ class QuestionController extends Controller
         return $view;
     }
 
-    public function show($question_id)
+    public function show($id)
     {
 
-        $question = Question::find($question_id);
+        $question = Question::find($id);
 
         // fluent "SELECT FROM `answers` WHERE `question_id` = {$question_id}
         // $answers = DB::table('answers')
